@@ -1,0 +1,48 @@
+@import '@styles/variables';
+
+.btn {
+    display: flex;
+    align-items: center;
+    color: $textColor;
+    justify-content: center;
+    background: $mainColor;
+    border-radius: 9999px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 1rem;
+    border: none;
+    transition: $mainAnimation;
+    box-shadow: $standartShadow;
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    opacity: 0.5;
+    width: 56px;
+
+    span {
+        position: absolute;
+        font-size: 0.8rem;
+        background: $mainColor;
+        border-radius: 9999px;
+        width: 12px;
+        height: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 1rem;
+        top: 1rem;
+        font-weight: bold;
+        transition: $mainAnimation;
+    }
+    &:hover > span {
+        font-size: 1.5rem;
+        font-weight: normal;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        transition: $mainAnimation;
+    }
+}

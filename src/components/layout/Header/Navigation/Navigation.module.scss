@@ -1,0 +1,49 @@
+@import '@styles/variables';
+
+.navigation {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    li {
+        position: relative;
+        font-size: 1.4rem;
+        cursor: pointer;
+        &:hover {
+            &:after {
+                content: '';
+                background: #000;
+                height: 2px;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+            .hiddenMenu {
+                opacity: 100;
+                pointer-events: auto;
+            }
+        }
+        &:after {
+            transition: $mainAnimation;
+            content: '';
+            background: #000;
+            height: 2px;
+            width: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .hiddenMenu {
+            transition: $mainAnimation;
+            position: absolute;
+            box-shadow: $standartShadow;
+            min-width: 100%;
+            width: auto;
+            padding: 0.5rem;
+            background: #fff;
+            z-index: 90;
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+@import '@styles/variables';
+
+.logo {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-family: 'Silkscreen', cursive;
+    cursor: pointer;
+    color: $textColor;
+    .text {
+        position: relative;
+        &:after {
+            transition: $mainAnimation;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: #000;
+            height: 2px;
+            width: 0;
+        }
+    }
+    .icon {
+        font-size: 3rem;
+        transition: $mainAnimation;
+    }
+    &:hover > .icon {
+        transform: translateX(275px);
+    }
+    &:hover {
+        .text:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: #000;
+            height: 2px;
+            width: 100%;
+        }
+    }
+}

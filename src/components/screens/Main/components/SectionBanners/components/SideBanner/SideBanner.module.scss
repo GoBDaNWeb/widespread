@@ -1,0 +1,10 @@
+@import '@styles/variables';
+
+.banner {
+    background: #fff;
+    width: 100%;
+    height: 300px;
+    border-radius: $mainRounded;
+    box-shadow: $standartShadow;
+    cursor: pointer;
+}
