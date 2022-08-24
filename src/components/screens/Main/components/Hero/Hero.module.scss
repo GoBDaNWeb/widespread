@@ -1,0 +1,14 @@
+@import '@styles/variables';
+
+.hero {
+    background: #fff;
+    border-radius: $mainRounded;
+    height: 30rem;
+    position: relative;
+    box-shadow: $standartShadow;
+    overflow: hidden;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,26 +1,25 @@
+// * react
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// * components
+import MainPage from '@pages/Main';
+import ProductPage from '@pages/Product';
+import CollectionPage from '@pages/Collection';
+import CartPage from '@pages/Cart';
+import Layout from '@components/layout/Layout';
+
+const App = () => {
+    return (
+        <Layout>
+            <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/product/:id" element={<ProductPage />} />
+                <Route path="/collection/:slug" element={<CollectionPage />} />
+                <Route path="/cart" element={<CartPage />} />
+            </Routes>
+        </Layout>
+    );
+};
 
 export default App;

@@ -1,0 +1,26 @@
+@import '@styles/variables';
+
+.header {
+    height: 5rem;
+    background: #fafaf9;
+    box-shadow: $standartShadow;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10rem;
+    position: fixed;
+    z-index: 999;
+    right: 0;
+    left: 0;
+    .iconCart {
+        font-size: 2.2rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: $mainAnimation;
+        &:hover {
+            background: rgba(34, 197, 94, 0.6);
+            border-radius: 9999px;
+            color: $textColorWhite;
+        }
+    }
+}
