@@ -2,6 +2,9 @@
 
 .hero {
     background: #fff;
+    background-image: url('../../../../../../public/hero.jpg');
+    background-position: center;
+    background-size: cover;
     border-radius: $mainRounded;
     height: 30rem;
     position: relative;

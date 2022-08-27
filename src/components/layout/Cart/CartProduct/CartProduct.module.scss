@@ -1,0 +1,23 @@
+@import '@styles/variables';
+
+.cartProduct {
+    border-bottom: 1px solid #000;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 1rem 0;
+    .img {
+        background: rgb(196, 196, 196);
+        width: 96px;
+        height: 96px;
+        border-radius: $mainRounded;
+        box-shadow: $standartShadow;
+    }
+    .productInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+}

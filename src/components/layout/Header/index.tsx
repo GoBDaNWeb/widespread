@@ -1,8 +1,8 @@
 // * react
-import { Link } from 'react-router-dom';
 
-// * icons
-import { RiShoppingCart2Line } from 'react-icons/ri';
+// * store
+import { observer } from 'mobx-react-lite';
+// import cart from 'store/cart';
 
 // * styles
 import styles from './Header.module.scss';
@@ -10,17 +10,16 @@ import styles from './Header.module.scss';
 // * components
 import Logo from '@components/ui/Logo';
 import Navigation from './Navigation';
+import CartButton from '@components/ui/CartButton';
 
-const Header = () => {
+const Header = observer(() => {
     return (
         <div className={styles.header}>
             <Logo />
             <Navigation />
-            <Link to="/cart">
-                <RiShoppingCart2Line className={styles.iconCart} />
-            </Link>
+            <CartButton />
         </div>
     );
-};
+});
 
 export default Header;
