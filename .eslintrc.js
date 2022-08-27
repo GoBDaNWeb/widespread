@@ -77,5 +77,7 @@ module.exports = {
         'react/jsx-indent': ['off'],
         'import/order': ['off'],
         'react/jsx-indent-props': ['off'],
+        'import/no-extraneous-dependencies': ['off'],
+        'import/no-extraneous-dependencies': ['off'],
     },
 };

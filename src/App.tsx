@@ -6,7 +6,6 @@ import { Routes, Route } from 'react-router-dom';
 import MainPage from '@pages/Main';
 import ProductPage from '@pages/Product';
 import CollectionPage from '@pages/Collection';
-import CartPage from '@pages/Cart';
 import Layout from '@components/layout/Layout';
 
 const App = () => {
@@ -16,7 +15,6 @@ const App = () => {
                 <Route path="/" element={<MainPage />} />
                 <Route path="/product/:id" element={<ProductPage />} />
                 <Route path="/collection/:slug" element={<CollectionPage />} />
-                <Route path="/cart" element={<CartPage />} />
             </Routes>
         </Layout>
     );
