@@ -1,6 +1,6 @@
-// * store
-import { observer } from 'mobx-react-lite';
-import cart from 'store/cart';
+// * react/next
+import React from 'react';
+import { ICloseButtonProps } from './types';
 
 // * icons
 import { AiOutlineClose } from 'react-icons/ai';
@@ -8,12 +8,12 @@ import { AiOutlineClose } from 'react-icons/ai';
 // * styles
 import styles from './CloseButton.module.scss';
 
-const CloseButton = observer(() => {
+const CloseButton: React.FC<ICloseButtonProps> = ({ fn }) => {
     return (
-        <button onClick={() => cart.handleOpenCart()} className={styles.btn}>
+        <button onClick={fn} className={styles.btn}>
             <AiOutlineClose />
         </button>
     );
-});
+};
 
 export default CloseButton;

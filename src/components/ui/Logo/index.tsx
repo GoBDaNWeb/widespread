@@ -1,5 +1,5 @@
 // * react
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 // * icons
 import { RiShoppingCartFill } from 'react-icons/ri';
@@ -8,19 +8,19 @@ import { RiShoppingCartFill } from 'react-icons/ri';
 import styles from './Logo.module.scss';
 
 const Logo = () => {
-    const { pathname } = useLocation();
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const scrollToTop = () => {
-        if (pathname === '/') {
+        if (router.pathname === '/') {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth',
             });
         } else {
-            navigate('/');
+            router.push('/');
         }
     };
+    
     return (
         <div onClick={scrollToTop} className={styles.logo}>
             <RiShoppingCartFill className={styles.icon} />

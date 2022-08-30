@@ -9,12 +9,19 @@
         display: flex;
         gap: 1rem;
         width: 100%;
-        .productImage {
+        .productImageWrapper {
             background: #fff;
             border-radius: $mainRounded;
             box-shadow: $standartShadow;
-            height: 500px;
+            height: 650px;
             width: 70%;
+            overflow: hidden;
+            position: relative;
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
         }
         .info {
             background: #fff;

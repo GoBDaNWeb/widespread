@@ -3,7 +3,7 @@ import { makeAutoObservable } from 'mobx';
 class Cart {
     cartProducts = [];
 
-    isCartOpen = true;
+    isCartOpen = false;
 
     constructor() {
         makeAutoObservable(this);

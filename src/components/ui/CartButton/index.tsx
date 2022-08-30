@@ -1,6 +1,6 @@
-// * store
-import { observer } from 'mobx-react-lite';
-import cart from 'store/cart';
+// * react/next
+import React from 'react';
+import { ICartButtonProps } from './types';
 
 // * icons
 import { RiShoppingCart2Line } from 'react-icons/ri';
@@ -8,15 +8,12 @@ import { RiShoppingCart2Line } from 'react-icons/ri';
 // * styles
 import styles from './CartButtom.module.scss';
 
-const CartButton = observer(() => {
+const CartButton: React.FC<ICartButtonProps> = ({ fn }) => {
     return (
-        <button
-            onClick={() => cart.handleOpenCart()}
-            className={styles.iconCart}
-        >
+        <button onClick={fn} className={styles.iconCart}>
             <RiShoppingCart2Line />
         </button>
     );
-});
+};
 
 export default CartButton;
