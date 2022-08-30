@@ -1,5 +1,9 @@
 // * react
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { IMainProps } from './types';
+
+// * services
+import { getAllProducts, getPopularProducts } from '@services/productsApi';
 
 // * styles
 import styles from './Main.module.scss';
@@ -10,7 +14,7 @@ import PopularProducts from './components/PopularProducts';
 import SectionBanners from './components/SectionBanners';
 import AllProducts from './components/AllProducts';
 
-const Main = () => {
+const Main: React.FC<IMainProps> = ({ allProducts, popularProducts }) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -18,9 +22,9 @@ const Main = () => {
     return (
         <div className={styles.main}>
             <Hero />
-            <PopularProducts />
+            <PopularProducts products={popularProducts} />
             <SectionBanners />
-            <AllProducts />
+            <AllProducts products={allProducts} />
         </div>
     );
 };

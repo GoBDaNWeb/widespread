@@ -4,21 +4,14 @@ module.exports = {
         es2021: true,
     },
     extends: [
-        'react-app',
+        'next/core-web-vitals',
         'airbnb',
         'airbnb-typescript',
         'plugin:import/typescript',
         'plugin:prettier/recommended',
     ],
     overrides: [],
-    ignorePatterns: [
-        'tailwind.config.js',
-        'scripts',
-        'postcss.config.js',
-        'config',
-        '.eslintrc.js',
-        'build',
-    ],
+    ignorePatterns: ['.eslintrc.js', 'next.config.js'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -78,6 +71,8 @@ module.exports = {
         'import/order': ['off'],
         'react/jsx-indent-props': ['off'],
         'import/no-extraneous-dependencies': ['off'],
-        'import/no-extraneous-dependencies': ['off'],
+        'import/prefer-default-export': ['off'],
+        'no-console': ['warn'],
+        '@typescript-eslint/no-unused-vars': ['off'],
     },
 };

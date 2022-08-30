@@ -1,6 +1,6 @@
 // * store
 import { observer } from 'mobx-react-lite';
-import cart from 'store/cart';
+import cart from '@store/cart';
 
 // * styles
 import styles from './Cart.module.scss';
@@ -19,7 +19,7 @@ const Cart = observer(() => {
                 <div className={styles.cartHeader}>
                     <h4>Корзина</h4>
 
-                    <CloseButton />
+                    <CloseButton fn={() => cart.handleOpenCart()} />
                 </div>
                 <div className={styles.cartContent}>
                     <CartProduct />

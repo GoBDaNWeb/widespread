@@ -1,5 +1,5 @@
-// * react
-import { Link } from 'react-router-dom';
+// * react/next
+import Link from 'next/link';
 
 // * styles
 import styles from './MainBanner.module.scss';
@@ -8,7 +8,7 @@ import styles from './MainBanner.module.scss';
 
 const MainBanner = () => {
     return (
-        <Link to={`/section/${123}`}>
+        <Link href={`/section/${123}`}>
             <div className={styles.banner}>MainBanner</div>
         </Link>
     );

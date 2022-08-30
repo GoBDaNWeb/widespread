@@ -1,8 +1,6 @@
-// * react
-
 // * store
 import { observer } from 'mobx-react-lite';
-// import cart from 'store/cart';
+import cart from '@store/cart';
 
 // * styles
 import styles from './Header.module.scss';
@@ -17,7 +15,7 @@ const Header = observer(() => {
         <div className={styles.header}>
             <Logo />
             <Navigation />
-            <CartButton />
+            <CartButton fn={() => cart.handleOpenCart()} />
         </div>
     );
 });
