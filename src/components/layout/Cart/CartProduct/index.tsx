@@ -41,7 +41,7 @@ const CartProduct: React.FC<ICartProductProps> = observer(({ product }) => {
                         src={product.images[0].url}
                         alt="product"
                         placeholder="blur"
-                        blurDataURL
+                        blurDataURL="blur"
                     />
                 </div>
 
