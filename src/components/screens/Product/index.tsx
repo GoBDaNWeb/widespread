@@ -66,12 +66,11 @@ const Product: React.FC<IProductProps> = observer(
                     >
                         <div style={bg} className={styles.bg} />
                         <Image
-                            imgRef={imgRef}
                             layout="fill"
                             src={product?.images[0].url}
                             alt="product"
                             placeholder="blur"
-                            blurDataURL
+                            blurDataURL="blur"
                             style={css}
                         />
                     </div>
