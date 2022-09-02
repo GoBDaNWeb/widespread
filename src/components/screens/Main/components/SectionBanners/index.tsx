@@ -1,17 +1,24 @@
+// * react
+import React from 'react';
+import { ISectionBannerProps } from '../../types';
+
 // * styles
 import styles from './SectionBanner.module.scss';
 
 // * components
-import MainBanner from './components/MainBanner';
-import SideBanner from './components/SideBanner';
+import Banner from '@components/common/Banner';
 
-const SectionBanners = () => {
+const SectionBanners: React.FC<ISectionBannerProps> = ({
+    tShirtsCategory,
+    hoodiesCategory,
+    pantsCategory,
+}) => {
     return (
         <div className={styles.banners}>
-            <MainBanner />
+            <Banner banner={tShirtsCategory} />
             <div className={styles.sideBanners}>
-                <SideBanner />
-                <SideBanner />
+                <Banner banner={hoodiesCategory} />
+                <Banner banner={pantsCategory} />
             </div>
         </div>
     );

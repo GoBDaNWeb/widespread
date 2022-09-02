@@ -1,10 +1,14 @@
-import { IProductResponse } from '@modules/types';
+type Banner = {
+    url: string;
+};
 
-export interface IProductsProps {
-    products: IProductResponse[];
+export interface ICategory {
+    slug: string;
+    banner: Banner;
 }
 
-export interface IMainProps {
-    allProducts: any;
-    popularProducts: any;
+export interface ISectionBannerProps {
+    tShirtsCategory: ICategory;
+    hoodiesCategory: ICategory;
+    pantsCategory: ICategory;
 }
