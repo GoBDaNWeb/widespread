@@ -1,7 +1,10 @@
 @import '@styles/variables';
 
 .iconCart {
-    font-size: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
     cursor: pointer;
     padding: 0.5rem;
     transition: $mainAnimation;
@@ -9,6 +12,18 @@
     border: none;
     width: 56px;
     height: 56px;
+    position: relative;
+    span {
+        position: absolute;
+        background: #ef4444;
+        color: $textColorWhite;
+        font-size: 0.75rem;
+        width: 16px;
+        height: 16px;
+        border-radius: 9999px;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
     &:hover {
         background: rgba(34, 197, 94, 0.6);
         border-radius: 9999px;

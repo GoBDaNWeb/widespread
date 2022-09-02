@@ -4,7 +4,7 @@
     background: $mainColor;
     position: fixed;
     right: 0;
-    width: 40%;
+    width: 45%;
     height: 100vh;
     padding: 3rem;
     display: flex;
@@ -12,13 +12,51 @@
     justify-content: space-between;
     transition: $mainAnimation;
     .cartMain {
+        height: 100%;
         .cartHeader {
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            h4 {
-                font-size: 2rem;
+            .title {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
+            .info {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .btn {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    position: relative;
+                    font-size: 1rem;
+                    &:after {
+                        transition: $mainAnimation;
+                        content: '';
+                        position: absolute;
+                        background: #000;
+                        width: 0;
+                        height: 2px;
+                        bottom: 0;
+                        left: 0;
+                    }
+                    &:hover:after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .cartContent {
+            height: 70%;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
     }
     .cartFooter {

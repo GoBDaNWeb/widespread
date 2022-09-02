@@ -1,22 +1,42 @@
 // * react/next
 import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
+import { IProductPageProps } from '@modules/types';
 
 // * services
-import { getProduct, getAllProducts } from '@services/productsApi';
+import {
+    getProduct,
+    getAllProducts,
+    getFilteredProductsByCategory,
+} from '@services/productsApi';
 
 // * components
 import Product from '@components/screens/Product';
 
-const ProductPage: React.FC<any> = ({ product }) => {
-    return <Product product={product} />;
+const ProductPage: React.FC<IProductPageProps> = ({
+    product,
+    similarProducts,
+    allProducts,
+}) => {
+    return (
+        <Product
+            product={product}
+            similarProducts={similarProducts}
+            allProducts={allProducts}
+        />
+    );
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const product = await getProduct(params?.id);
+    const similarProducts = await getFilteredProductsByCategory(
+        product.categories[0].name,
+        params?.id,
+    );
+    const allProducts = await getAllProducts();
 
     return {
-        props: { product },
+        props: { product, similarProducts, allProducts },
     };
 };
 

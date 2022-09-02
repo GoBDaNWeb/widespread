@@ -1,18 +1,38 @@
 // * react
+import React from 'react';
+import { IAddButtonProps } from './types';
+
+// * store
+import { observer } from 'mobx-react-lite';
+import cart from '@store/cart';
 
 // * icons
-import { RiShoppingCart2Line } from 'react-icons/ri';
+import { RiShoppingCart2Line, RiCloseFill } from 'react-icons/ri';
+import { GrFormAdd } from 'react-icons/gr';
 
 // * styles
 import styles from './AddButton.module.scss';
 
-const AddButton = () => {
+const AddButton: React.FC<IAddButtonProps> = observer(({ fn, isInCart }) => {
+    const handleClickButton = (
+        e: React.MouseEvent<HTMLButtonElement>,
+    ): void => {
+        e.preventDefault();
+        fn();
+    };
+
     return (
-        <button onClick={(e) => e.preventDefault()} className={styles.btn}>
-            <RiShoppingCart2Line />
-            <span>+</span>
+        <button onClick={handleClickButton} className={styles.btn}>
+            <span
+                className={`${isInCart() ? styles.closeIcon : styles.addIcon}`}
+            >
+                <GrFormAdd />
+            </span>
+            {!isInCart() ? (
+                <RiShoppingCart2Line className={styles.cartIcon} />
+            ) : null}
         </button>
     );
-};
+});
 
 export default AddButton;

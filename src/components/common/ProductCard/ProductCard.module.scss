@@ -1,62 +1,121 @@
 @import '@styles/variables';
 
-.product {
-    background: #fff;
-    width: 100%;
-    height: 380px;
-    border-radius: $mainRounded;
-    box-shadow: $standartShadow;
-    transition: $mainAnimation;
-    overflow: hidden;
-    cursor: pointer;
+.productWrapper {
     position: relative;
-    img {
-        width: 100%;
-        height: 100%;
-    }
+    transition: $mainAnimation;
     &:hover {
         transform: translateY(-10px);
     }
-    &:hover > .productFooter {
-        height: 200px;
+    &:hover > .product > .productFooter h5 {
+        transform: translateY(0);
     }
-    &:hover > .productFooter > button {
-        bottom: 1rem;
-        opacity: 1;
-    }
-    .newFeature {
-        background: #ef4444;
-        animation: new 3s ease-in infinite;
-        padding: 1rem;
-        height: 1rem;
-        font-weight: bold;
-        text-align: center;
-        width: 20%;
-        border-bottom-right-radius: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: $standartShadow;
-        position: absolute;
-        top: 0;
-    }
-    .productFooter {
-        transition: $mainAnimation;
-
+    .product {
+        background: #fff;
         width: 100%;
-        height: 100px;
-        background: rgb(0, 0, 0);
-        background: linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(9, 9, 121, 0) 100%,
-            rgba(0, 212, 255, 0) 100%
-        );
-        position: absolute;
-        bottom: 0;
-        .addToCart {
-            color: black;
+        height: 380px;
+        border-radius: $mainRounded;
+        box-shadow: $standartShadow;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+        img {
+            width: 100%;
+            height: 100%;
         }
+
+        &:hover > .productFooter {
+            height: 200px;
+        }
+        &:hover > .productFooter > .footerBtn > button {
+            bottom: 2.3rem;
+            opacity: 1;
+        }
+        &:hover > .productFooter > .footerBtn > .price {
+            bottom: 0.5rem;
+            opacity: 1;
+        }
+        .newFeature {
+            background: #ef4444;
+            animation: new 3s ease-in infinite;
+            padding: 1rem;
+            height: 1rem;
+            font-weight: bold;
+            text-align: center;
+            width: 20%;
+            border-bottom-right-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: $standartShadow;
+            position: absolute;
+            top: 0;
+        }
+        .productFooter {
+            transition: $mainAnimation;
+            width: 100%;
+            height: 100px;
+            background: rgb(0, 0, 0);
+            background: linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 1) 0%,
+                rgba(9, 9, 121, 0) 100%,
+                rgba(0, 212, 255, 0) 100%
+            );
+            position: absolute;
+            bottom: 0;
+            padding: 0 0.5rem;
+            .footerBtn {
+                .addToCart {
+                    color: black;
+                }
+                button {
+                    bottom: -2rem;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                    opacity: 0.5;
+                }
+                .price {
+                    transition: $mainAnimation;
+
+                    text-align: center;
+                    background: $mainColor;
+                    width: 56px;
+                    position: absolute;
+                    margin: 0 auto;
+                    height: 24px;
+                    border-radius: 1rem;
+                    right: 0;
+                    left: 0;
+                    bottom: -2rem;
+                    color: #10b981;
+                }
+            }
+            h5 {
+                transition: $mainAnimation;
+                font-size: 1.5rem;
+                transform: translateY(100px);
+                color: $textColorWhite;
+                text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+            }
+        }
+    }
+    .inCart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $textColorWhite;
+        position: absolute;
+        background: #22c55e;
+        width: 36px;
+        height: 36px;
+        border-radius: 9999px;
+        z-index: 100;
+        top: -0.5rem;
+        right: -0.5rem;
+        box-shadow: $standartShadow;
     }
 }
 
@@ -72,5 +131,20 @@
     100% {
         color: #fef08a;
         font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 1450px) {
+    .productWrapper {
+        .product {
+            height: 500px;
+        }
+    }
+}
+@media (max-width: 1215px) {
+    .productWrapper {
+        .product {
+            height: 440px;
+        }
     }
 }
