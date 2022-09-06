@@ -55,7 +55,6 @@ class Cart {
         const currentIndex = this.cartProducts.findIndex(
             (product: any) => product.id === id,
         );
-        // eslint-disable-next-line no-plusplus
         this.cartProducts[currentIndex].disabled = true;
     }
 
@@ -63,7 +62,6 @@ class Cart {
         const currentIndex = this.cartProducts.findIndex(
             (product: any) => product.id === id,
         );
-        // eslint-disable-next-line no-plusplus
         this.cartProducts[currentIndex].disabled = false;
     }
 

@@ -14,3 +14,14 @@
         }
     }
 }
+
+@media (max-width: 1150px) {
+    .banners {
+        .sideBanners {
+            grid-template-columns: repeat(1, 1fr);
+            div {
+                height: 420px;
+            }
+        }
+    }
+}

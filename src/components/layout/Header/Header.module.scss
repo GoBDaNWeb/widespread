@@ -3,7 +3,7 @@
 .header {
     height: 5rem;
     background: #fafaf9;
-    box-shadow: $standartShadow;
+    box-shadow: $primaryShadow;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -12,4 +12,15 @@
     z-index: 900;
     right: 0;
     left: 0;
+}
+
+@media (max-width: 1600px) {
+    .header {
+        padding: 0 6rem;
+    }
+}
+@media (max-width: 1400px) {
+    .header {
+        padding: 0 3rem;
+    }
 }

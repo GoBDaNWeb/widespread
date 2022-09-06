@@ -26,8 +26,8 @@ const Cart = observer(() => {
 
                     <div className={styles.info}>
                         <span>
-Всего
-{cart.cartProducts.length}
+                            Всего
+                            {cart.cartProducts.length}
                         </span>
                         <button
                             onClick={() => cart.removeProducts()}
@@ -40,7 +40,7 @@ const Cart = observer(() => {
 
                 <div className={styles.cartContent}>
                     {cart.cartProducts.map((product: any) => (
-                        <CartProduct product={product} />
+                        <CartProduct key={product.id} product={product} />
                     ))}
                 </div>
             </div>
