@@ -1,10 +1,11 @@
 // * react/next
-import { NextPage, GetStaticProps } from 'next';
+import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import { ICategoryPageProps } from '@modules/types';
 
 // * services
 import {
     getAllProductsByCategory,
+    getAllProducts,
     getAllCategories,
 } from '@services/productsApi';
 
@@ -20,13 +21,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return { props: { products } };
 };
 
-export const getStaticPaths = async () => {
-    const categories = await getAllCategories();
-
+export const getStaticPaths: GetStaticPaths = async () => {
+    const caterories = await getAllCategories();
     return {
         // @ts-ignore
-        paths: categories.map(({ slug }) => ({ params: { slug } })),
-        fallback: true,
+        paths: caterories.map(({ slug }) => ({
+            params: { slug: slug.toString() },
+        })),
+        fallback: false,
     };
 };
 

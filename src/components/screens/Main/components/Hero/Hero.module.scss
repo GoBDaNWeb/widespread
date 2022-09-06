@@ -5,10 +5,10 @@
     background-image: url('../../../../../../public/hero.jpg');
     background-position: center;
     background-size: cover;
-    border-radius: $mainRounded;
+    border-radius: $primaryRounded;
     height: 30rem;
     position: relative;
-    box-shadow: $standartShadow;
+    box-shadow: $primaryShadow;
     overflow: hidden;
     img {
         width: 100%;

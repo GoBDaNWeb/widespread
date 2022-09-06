@@ -11,8 +11,8 @@
         width: 100%;
         .productImageWrapper {
             background: #fff;
-            border-radius: $mainRounded;
-            box-shadow: $standartShadow;
+            border-radius: $primaryRounded;
+            box-shadow: $primaryShadow;
             height: 650px;
             min-width: 540px;
             overflow: hidden;
@@ -38,15 +38,14 @@
         .info {
             padding: 1rem;
             background: #fff;
-            border-radius: $mainRounded;
-            box-shadow: $standartShadow;
-            height: 500px;
+            border-radius: $primaryRounded;
+            box-shadow: $primaryShadow;
             width: 100%;
             position: relative;
             .price {
                 display: flex;
                 justify-content: center;
-                transition: $mainAnimation;
+                transition: $primaryTransition;
                 font-size: 2rem;
                 text-align: center;
                 color: #10b981;
@@ -62,13 +61,71 @@
     }
     .reviews {
         background: #fff;
-        border-radius: $mainRounded;
-        box-shadow: $standartShadow;
+        border-radius: $primaryRounded;
+        box-shadow: $primaryShadow;
         height: 500px;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         color: rgba(39, 39, 42, 0.3);
+    }
+}
+
+@media (max-width: 1250px) {
+    .product {
+        .mainInfo {
+            display: flex;
+            flex-direction: column;
+            .productImageWrapper {
+                height: 1200px;
+            }
+        }
+    }
+}
+@media (max-width: 1100px) {
+    .product {
+        .mainInfo {
+            display: flex;
+            flex-direction: column;
+            .productImageWrapper {
+                height: 1000px;
+            }
+        }
+    }
+}
+@media (max-width: 900px) {
+    .product {
+        .mainInfo {
+            display: flex;
+            flex-direction: column;
+            .productImageWrapper {
+                height: 800px;
+            }
+        }
+    }
+}
+@media (max-width: 750px) {
+    .product {
+        .mainInfo {
+            display: flex;
+            flex-direction: column;
+            .productImageWrapper {
+                min-width: 340px;
+                height: 600px;
+            }
+        }
+    }
+}
+@media (max-width: 560px) {
+    .product {
+        .mainInfo {
+            display: flex;
+            flex-direction: column;
+            .productImageWrapper {
+                min-width: 340px;
+                height: 480px;
+            }
+        }
     }
 }
