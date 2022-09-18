@@ -9,7 +9,7 @@
             "@services/*": ["src/services/*"],
             "@hooks/*": ["src/hooks/*"],
             "@styles/*": ["src/styles/*"],
-            "@modules/*": ["src/modules/*"]
+            "@models/*": ["src/models/*"]
         },
         "target": "es5",
         "lib": ["dom", "dom.iterable", "esnext"],

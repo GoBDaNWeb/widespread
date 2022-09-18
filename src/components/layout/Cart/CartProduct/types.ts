@@ -1,4 +1,4 @@
-import { IProduct } from '@modules/types';
+import { IProduct } from '@models/types';
 
 interface ICartProduct extends IProduct {
     disabled: boolean;

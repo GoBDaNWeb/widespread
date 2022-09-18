@@ -1,11 +1,10 @@
 // * react/next
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
-import { ICategoryPageProps } from '@modules/types';
+import { ICategoryPageProps } from '@models/types';
 
 // * services
 import {
     getAllProductsByCategory,
-    getAllProducts,
     getAllCategories,
 } from '@services/productsApi';
 

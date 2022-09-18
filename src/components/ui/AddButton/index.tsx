@@ -4,10 +4,9 @@ import { IAddButtonProps } from './types';
 
 // * store
 import { observer } from 'mobx-react-lite';
-import cart from '@store/cart';
 
 // * icons
-import { RiShoppingCart2Line, RiCloseFill } from 'react-icons/ri';
+import { RiShoppingCart2Line } from 'react-icons/ri';
 import { GrFormAdd } from 'react-icons/gr';
 
 // * styles

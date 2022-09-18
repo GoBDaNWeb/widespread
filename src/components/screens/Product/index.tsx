@@ -1,6 +1,5 @@
 // * react
 import React, { useEffect, useState, useRef } from 'react';
-import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { IProductProps } from './types';
 
@@ -12,7 +11,6 @@ import cart from '@store/cart';
 import styles from './Product.module.scss';
 
 // * components
-import SingleSelect from '@components/ui/Selector';
 import AddButton from '@components/ui/AddButton';
 import Title from '@components/ui/Title';
 import ProductsList from '@components/common/ProductsList';
@@ -40,11 +38,6 @@ const Product: React.FC<IProductProps> = observer(
             filter: 'blur(10px)',
         };
 
-        const options = [
-            { value: 'chocolate', label: 'Chocolate' },
-            { value: 'strawberry', label: 'Strawberry' },
-            { value: 'vanilla', label: 'Vanilla' },
-        ];
         return (
             <div className={styles.product}>
                 <div className={styles.mainInfo}>

@@ -1,6 +1,6 @@
 // * react/next
 import { GetStaticProps, NextPage } from 'next';
-import { IMainPageProps } from '@modules/types';
+import { IMainPageProps } from '@models/types';
 
 // * services
 import {

@@ -1,4 +1,4 @@
-import { IProductResponse } from '@modules/types';
+import { IProductResponse } from '@models/types';
 
 export interface ICategoryProps {
     products: IProductResponse[];

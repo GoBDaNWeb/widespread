@@ -1,5 +1,5 @@
 const Custom404Page = () => {
-    return <div>kekel)</div>;
+    return <div>Error</div>;
 };
 
 export default Custom404Page;
