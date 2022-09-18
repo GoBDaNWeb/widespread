@@ -1,6 +1,6 @@
 // * react
 import React, { useEffect } from 'react';
-import { IMainPageProps } from '@modules/types';
+import { IMainPageProps } from '@models/types';
 
 // * styles
 import styles from './Main.module.scss';

@@ -1,4 +1,4 @@
-import { IProduct } from '@modules/types';
+import { IProduct } from '@models/types';
 
 export interface IProductProps {
     product: IProduct;

@@ -1,4 +1,4 @@
-import { ICategory } from '@modules/types';
+import { ICategory } from '@models/types';
 
 export interface IBannerProps {
     banner: ICategory;

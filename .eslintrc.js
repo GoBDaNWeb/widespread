@@ -73,9 +73,7 @@ module.exports = {
         'import/no-extraneous-dependencies': ['off'],
         'import/prefer-default-export': ['off'],
         'no-console': ['warn'],
-        '@typescript-eslint/no-unused-vars': ['off'],
         '@typescript-eslint/no-shadow': ['off'],
         'react/jsx-curly-newline': ['off'],
-        categories: ['off'],
     },
 };

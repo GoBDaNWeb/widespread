@@ -1,7 +1,7 @@
 // * react/next
 import React from 'react';
-import { GetStaticProps, NextPage } from 'next';
-import { IProductPageProps } from '@modules/types';
+import { GetStaticProps } from 'next';
+import { IProductPageProps } from '@models/types';
 
 // * services
 import {
