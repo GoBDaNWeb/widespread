@@ -2,6 +2,13 @@
 import { GetStaticProps, NextPage } from 'next';
 import { IMainPageProps } from '@models/types';
 
+// * constants
+import {
+    tShirtCategoryId,
+    hoodiesCategoryId,
+    pantsCategoryId,
+} from '../constants';
+
 // * services
 import {
     getAllProducts,
@@ -33,13 +40,9 @@ const MainPage: NextPage<IMainPageProps> = ({
 export const getStaticProps: GetStaticProps = async () => {
     const allProducts = (await getAllProducts()) || [];
     const popularProducts = await getPopularProducts();
-    const tShirtsCategory = await getBannerCategory(
-        'cl76yu5u5dq6q0ctg7n366vnb',
-    );
-    const hoodiesCategory = await getBannerCategory(
-        'cl76zh0fyedu80dui7hkwgjb4',
-    );
-    const pantsCategory = await getBannerCategory('cl76zi4vddxhs0buwvbd3pn7n');
+    const tShirtsCategory = await getBannerCategory(tShirtCategoryId);
+    const hoodiesCategory = await getBannerCategory(hoodiesCategoryId);
+    const pantsCategory = await getBannerCategory(pantsCategoryId);
 
     return {
         props: {
