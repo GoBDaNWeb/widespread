@@ -9,6 +9,7 @@ import styles from './Main.module.scss';
 import Hero from './components/Hero';
 import ProductsList from '@components/common/ProductsList';
 import SectionBanners from './components/SectionBanners';
+import Filters from '@components/common/Filterts';
 
 const Main: React.FC<IMainPageProps> = ({
     allProducts,
@@ -27,13 +28,15 @@ const Main: React.FC<IMainPageProps> = ({
             <ProductsList
                 products={popularProducts}
                 title="Популярные Товары"
+                isPaginate={false}
             />
             <SectionBanners
                 tShirtsCategory={tShirtsCategory}
                 hoodiesCategory={hoodiesCategory}
                 pantsCategory={pantsCategory}
             />
-            <ProductsList products={allProducts} />
+            <Filters title="Все Товары" />
+            <ProductsList products={allProducts} isPaginate />
         </div>
     );
 };

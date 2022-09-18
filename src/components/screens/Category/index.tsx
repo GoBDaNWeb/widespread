@@ -16,7 +16,7 @@ const Category: React.FC<ICategoryProps> = ({ products }) => {
 
     return (
         <div className={styles.category}>
-            <ProductsList products={products} title={title} />
+            <ProductsList products={products} title={title} isPaginate />
         </div>
     );
 };

@@ -1,0 +1,17 @@
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 60%;
+    margin: 0 auto;
+    background: rgba(240, 240, 240, 0.6);
+    backdrop-filter: blur(2px);
+    padding: 1rem 4rem;
+    z-index: 500;
+    .sort {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+}

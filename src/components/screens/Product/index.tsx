@@ -14,6 +14,7 @@ import styles from './Product.module.scss';
 import AddButton from '@components/ui/AddButton';
 import Title from '@components/ui/Title';
 import ProductsList from '@components/common/ProductsList';
+import Filters from '@components/common/Filterts';
 
 const Product: React.FC<IProductProps> = observer(
     ({ product, similarProducts, allProducts }) => {
@@ -87,8 +88,13 @@ $
                 <div className={styles.reviews}>
                     <Title variant="h3">Отзывов пока что нет</Title>
                 </div>
-                <ProductsList products={similarProducts} title="Похожее" />
-                <ProductsList products={allProducts} title="Все товары" />
+                <ProductsList
+                    products={similarProducts}
+                    title="Похожее"
+                    isPaginate={false}
+                />
+                <Filters title="Все товары" />
+                <ProductsList products={allProducts} isPaginate />
             </div>
         );
     },
