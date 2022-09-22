@@ -3,8 +3,9 @@ import React, { useEffect } from 'react';
 import { IFiltersProps } from './types';
 import { useForm, Controller } from 'react-hook-form';
 
-// * hooks
-import useDebounce from '@hooks/useDebounce';
+// * store
+import { observer } from 'mobx-react-lite';
+import filter from '@store/filter';
 
 // * styles
 import styles from './Filters.module.scss';
@@ -12,33 +13,39 @@ import styles from './Filters.module.scss';
 // * components
 import Title from '@components/ui/Title';
 import Search from '@components/ui/Search';
-import Select from '@components/ui/Select';
+import SingleSelect from '@components/ui/Select';
 
 const sort = [
-    { label: 'Цена', value: 'price' },
-    { label: 'Название', value: 'name' },
+    { label: 'Сортировка по Цене', value: 'price' },
+    { label: 'Сортировка по Названию', value: 'name' },
 ];
 
 const order = [
-    { label: 'По возрастанию', value: 'asc' },
-    { label: 'По убыванию', value: 'desc' },
+    { label: 'По Возрастанию', value: 'ASC' },
+    { label: 'По Убыванию', value: 'DESC' },
 ];
 
 const select = [
-    { label: 'Сначала новые', value: 'new' },
-    { label: 'Сначала популярные', value: 'popular' },
-    { label: 'Сначала эксклюзивные', value: 'exclusive' },
+    { label: 'Только Новые', value: 'new' },
+    { label: 'Только Популярные', value: 'popular' },
+    { label: 'Только Эксклюзивные', value: 'exclusive' },
+    { label: 'Только Распродажа', value: 'sale' },
 ];
 
-const Filters: React.FC<IFiltersProps> = ({ title }) => {
+const Filters: React.FC<IFiltersProps> = observer(({ title }) => {
     const { control, watch } = useForm();
-    const watchSearch = watch('search');
-
-    const debounce = useDebounce(watchSearch);
 
     useEffect(() => {
-        console.log('kekelok)');
-    }, [debounce]);
+        const subscription = watch((value, { name }) => {
+            name === 'search' && filter.setSearchValue(value.search);
+            name === 'sort' &&
+                filter.setSort(value.sort ? value.sort.value : null);
+            name === 'order' && filter.setOrder(value.order.value);
+            name === 'select' &&
+                filter.setSelect(value.select ? value.select.value : null);
+        });
+        return () => subscription.unsubscribe();
+    }, [watch]);
 
     return (
         <form className={styles.filters}>
@@ -55,21 +62,45 @@ const Filters: React.FC<IFiltersProps> = ({ title }) => {
                 )}
             />
             <div className={styles.sort}>
-                <Select
-                    options={sort}
-                    isClearable
-                    placeholder="Сортировка по"
+                <Controller
+                    name="sort"
+                    control={control}
+                    render={({ field: { onChange } }) => (
+                        <SingleSelect
+                            options={sort}
+                            isClearable
+                            onChange={onChange}
+                            placeholder="Сортировка по"
+                        />
+                    )}
                 />
-
-                <Select
-                    options={order}
-                    defaultValue={order[0]}
-                    isClearable={false}
+                <Controller
+                    name="order"
+                    control={control}
+                    render={({ field: { onChange } }) => (
+                        <SingleSelect
+                            options={order}
+                            defaultValue={order[0]}
+                            isClearable={false}
+                            onChange={onChange}
+                        />
+                    )}
                 />
             </div>
-            <Select options={select} isClearable placeholder="Сначала" />
+            <Controller
+                name="select"
+                control={control}
+                render={({ field: { onChange } }) => (
+                    <SingleSelect
+                        options={select}
+                        isClearable
+                        placeholder="Все"
+                        onChange={onChange}
+                    />
+                )}
+            />
         </form>
     );
-};
+});
 
 export default Filters;

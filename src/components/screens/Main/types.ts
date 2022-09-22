@@ -12,3 +12,9 @@ export interface ISectionBannerProps {
     hoodiesCategory: ICategory;
     pantsCategory: ICategory;
 }
+
+export interface IMainPageProps {
+    tShirtsCategory: ICategory;
+    hoodiesCategory: ICategory;
+    pantsCategory: ICategory;
+}

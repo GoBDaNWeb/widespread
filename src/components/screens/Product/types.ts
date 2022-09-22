@@ -1,7 +1,5 @@
-import { IProductResponse, IProduct } from '@models/types';
+import { IProduct } from '@models/types';
 
 export interface IProductProps {
-    allProducts: IProductResponse[];
-    similarProducts: IProductResponse[];
-    product: IProduct;
+    currentProduct: IProduct;
 }

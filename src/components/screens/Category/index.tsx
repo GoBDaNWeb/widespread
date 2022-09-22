@@ -16,7 +16,12 @@ const Category: React.FC<ICategoryProps> = ({ products }) => {
 
     return (
         <div className={styles.category}>
-            <ProductsList products={products} title={title} isPaginate />
+            <ProductsList
+                products={products}
+                title={title}
+                isLoading={false}
+                isPaginate={false}
+            />
         </div>
     );
 };

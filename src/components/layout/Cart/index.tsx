@@ -7,7 +7,7 @@ import styles from './Cart.module.scss';
 
 // * components
 import CloseButton from '@components/ui/CloseButton';
-import CartProduct from './CartProduct';
+import CartProduct from './components/CartProduct';
 import Title from '@components/ui/Title';
 
 const Cart = observer(() => {
@@ -27,7 +27,7 @@ const Cart = observer(() => {
                     <div className={styles.info}>
                         <span>
                             Всего
-                            {cart.cartProducts.length}
+                            {cart.cartProducts?.length}
                         </span>
                         <button
                             onClick={() => cart.removeProducts()}
@@ -39,7 +39,7 @@ const Cart = observer(() => {
                 </div>
 
                 <div className={styles.cartContent}>
-                    {cart.cartProducts.map((product: any) => (
+                    {cart.cartProducts?.map((product: any) => (
                         <CartProduct key={product.id} product={product} />
                     ))}
                 </div>

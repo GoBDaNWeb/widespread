@@ -29,6 +29,7 @@ const SingleSelect: React.FC<ISelectProps> = ({
     options,
     isClearable,
     placeholder,
+    onChange,
     defaultValue,
 }) => {
     return (
@@ -39,6 +40,7 @@ const SingleSelect: React.FC<ISelectProps> = ({
             placeholder={placeholder}
             options={options}
             styles={styles}
+            onChange={onChange}
         />
     );
 };
