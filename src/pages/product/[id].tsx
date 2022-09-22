@@ -1,7 +1,12 @@
 // * react/next
-import React from 'react';
+import React, { useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import { IProductPageProps } from '@models/types';
+
+// * store
+import { observer } from 'mobx-react-lite';
+import product from '@store/product';
+import filter from '@store/filter';
 
 // * services
 import {
@@ -13,39 +18,54 @@ import {
 // * components
 import Product from '@components/screens/Product';
 
-const ProductPage: React.FC<IProductPageProps> = ({
-    product,
-    similarProducts,
-    allProducts,
-}) => {
-    return (
-        <Product
-            product={product}
-            similarProducts={similarProducts}
-            allProducts={allProducts}
-        />
-    );
-};
+const ProductPage: React.FC<IProductPageProps> = observer(
+    ({ currentProduct, similarProducts, allProducts }) => {
+        useEffect(() => {
+            if (similarProducts !== null && allProducts !== null) {
+                product.setAllProducts(allProducts);
+                product.setSimilarProducts(similarProducts);
+            }
+        }, []);
+
+        return <Product currentProduct={currentProduct} />;
+    },
+);
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const product = await getProduct(params?.id);
+    const currentProduct = await getProduct(params?.id);
     const similarProducts = await getFilteredProductsByCategory(
-        product.categories[0].name,
+        currentProduct.categories[0].name,
         params?.id,
     );
-    const allProducts = await getAllProducts();
+    const allProducts =
+        (await getAllProducts(
+            filter.order,
+            filter.sort,
+            filter.searchValue,
+            filter.select,
+        )) || [];
 
     return {
-        props: { product, similarProducts, allProducts },
+        props: {
+            currentProduct,
+            similarProducts,
+            allProducts,
+        },
     };
 };
 
 export const getStaticPaths = async () => {
-    const products = await getAllProducts();
+    const products =
+        (await getAllProducts(
+            filter.order,
+            filter.sort,
+            filter.searchValue,
+            filter.select,
+        )) || [];
 
     return {
         // @ts-ignore
-        paths: products.map(({ node: { id } }) => ({ params: { id } })),
+        paths: products.edges.map(({ node: { id } }) => ({ params: { id } })),
         fallback: true,
     };
 };

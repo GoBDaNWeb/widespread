@@ -1,5 +1,8 @@
+// * components
+import Error from '@components/screens/Error';
+
 const Custom404Page = () => {
-    return <div>Error</div>;
+    return <Error />;
 };
 
 export default Custom404Page;

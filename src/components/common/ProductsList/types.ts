@@ -1,7 +1,10 @@
-import { IProductResponse } from '@models/types';
+import { IProductEdge } from '@models/types';
 
 export interface IProductsListProps {
-    products: IProductResponse[];
+    products: IProductEdge[] | undefined | null;
     title?: string;
     isPaginate: boolean;
+    isLoading: boolean;
+    prevPage?: () => void;
+    nextPage?: () => void;
 }

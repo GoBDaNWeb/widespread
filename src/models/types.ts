@@ -17,6 +17,17 @@ type Banner = {
     url: string;
 };
 
+type PageInfo = {
+    hasNextPage: boolean;
+    hasPreviousPage: boolean;
+    startCursor: string;
+    endCursor: string;
+};
+
+type Edges = {
+    cursor: string;
+    node: IProduct;
+};
 export interface ICategory {
     slug: string;
     banner: Banner;
@@ -36,24 +47,39 @@ export interface IProduct {
     categories: Category[];
 }
 
-export interface IProductResponse {
+export interface IProductEdge {
     cursor: string;
     node: IProduct;
 }
 
+export interface IProductResponse {
+    edges: Edges[];
+    pageInfo: PageInfo;
+}
+
 export interface IMainPageProps {
-    allProducts: IProductResponse[];
-    popularProducts: IProductResponse[];
+    allProducts: IProductResponse;
+    popularProducts: IProductResponse;
     tShirtsCategory: ICategory;
     hoodiesCategory: ICategory;
     pantsCategory: ICategory;
 }
 
 export interface IProductPageProps {
-    allProducts: IProductResponse[];
-    similarProducts: IProductResponse[];
-    product: IProduct;
+    allProducts: IProductResponse;
+    similarProducts: IProductEdge[];
+    currentProduct: IProduct;
 }
+
 export interface ICategoryPageProps {
-    products: IProductResponse[];
+    products: IProductResponse;
+}
+
+export interface ICartProduct extends IProduct {
+    disabled: boolean;
+    quantity: number;
+}
+
+export interface ICartProductProps {
+    product: ICartProduct;
 }

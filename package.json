@@ -10,9 +10,11 @@
         "lint:fix": "eslint --fix ."
     },
     "dependencies": {
+        "@babel/plugin-proposal-decorators": "^7.19.1",
         "graphql": "^16.6.0",
         "graphql-request": "^5.0.0",
         "mobx": "^6.6.1",
+        "mobx-react": "^7.5.3",
         "next": "12.2.5",
         "nprogress": "^0.2.0",
         "react": "18.2.0",

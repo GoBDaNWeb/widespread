@@ -6,8 +6,12 @@
     height: 420px;
     border-radius: $primaryRounded;
     box-shadow: $primaryShadow;
-    background-size: cover;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+    transition: $primaryTransition;
+    &:hover {
+        background-size: 110%;
+    }
 }

@@ -19,18 +19,6 @@ import AddButton from '@components/ui/AddButton';
 import Title from '@components/ui/Title';
 
 const ProductCard: React.FC<IProductProps> = observer(({ product }) => {
-    const isInCart = () => {
-        const filtered = cart.cartProducts.filter(
-            (cartProduct: any) => cartProduct.id === product.id,
-        );
-
-        if (filtered.length) {
-            return true;
-        }
-
-        return false;
-    };
-
     return (
         <Link href={`/product/${product.id}`}>
             <div className={styles.productWrapper}>
@@ -69,7 +57,7 @@ const ProductCard: React.FC<IProductProps> = observer(({ product }) => {
                         </div>
                     </div>
                 </div>
-                {isInCart() && (
+                {cart.isInCart(product) && (
                     <div className={styles.inCart}>
                         <AiOutlineCheck />
                     </div>

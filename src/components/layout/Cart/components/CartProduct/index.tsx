@@ -1,7 +1,7 @@
 // * react
 import React from 'react';
 import Image from 'next/image';
-import { ICartProductProps } from './types';
+import { ICartProductProps } from '../../types';
 
 // * store
 import { observer } from 'mobx-react-lite';

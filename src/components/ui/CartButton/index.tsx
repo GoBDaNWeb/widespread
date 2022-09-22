@@ -16,8 +16,8 @@ const CartButton: React.FC<ICartButtonProps> = observer(({ fn }) => {
     return (
         <button onClick={fn} className={styles.iconCart}>
             <RiShoppingCart2Line />
-            {cart.cartProducts.length > 0 && (
-                <span>{cart.cartProducts.length}</span>
+            {cart.cartProducts !== null && cart.cartProducts.length > 0 && (
+                <span>{cart.cartProducts?.length}</span>
             )}
         </button>
     );

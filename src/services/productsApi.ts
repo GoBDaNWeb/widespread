@@ -2,10 +2,29 @@ import { request, gql } from 'graphql-request';
 
 // const graphqlAPI: any = process.env.GRAPHCMS_ENDPOINT;
 
-export const getAllProducts = async () => {
+export const getAllProducts = async (
+    order: string,
+    sort: string | null,
+    search: string,
+    select: string | null,
+    next?: string | null,
+    prev?: string | null,
+) => {
+    const orderCondition = sort ? `orderBy: ${sort}_${order}` : '';
+    const afterCondition = next ? `after: "${next}"` : '';
+    const beforeCondition = prev ? `before: "${prev}"` : '';
+    const selectCondition = select ? `${select}: true` : '';
+
     const query = gql`
-        query MyQuery {
-            productsConnection(first: 12) {
+        query MyQuery() {
+            productsConnection(
+                ${!prev && !next ? 'first: 12' : ''},
+                ${next ? 'first: 12' : ''},
+                ${prev ? 'last: 12' : ''},
+                 ${orderCondition},
+                ${afterCondition},
+                ${beforeCondition},
+                where: {name_contains: "${search}", ${selectCondition}}) {
                 edges {
                     cursor
                     node {
@@ -24,6 +43,12 @@ export const getAllProducts = async () => {
                         }
                     }
                 }
+                pageInfo {
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                    endCursor
+                }
             }
         }
     `;
@@ -31,8 +56,9 @@ export const getAllProducts = async () => {
     const result = await request(
         'https://api-eu-central-1.hygraph.com/v2/cl76t0jfz0iof01ro719ncwpf/master',
         query,
+        { order },
     );
-    return result.productsConnection.edges;
+    return result.productsConnection;
 };
 
 export const getPopularProducts = async () => {
@@ -57,6 +83,12 @@ export const getPopularProducts = async () => {
                         }
                     }
                 }
+                pageInfo {
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                    endCursor
+                }
             }
         }
     `;
@@ -65,7 +97,7 @@ export const getPopularProducts = async () => {
         'https://api-eu-central-1.hygraph.com/v2/cl76t0jfz0iof01ro719ncwpf/master',
         query,
     );
-    return result.productsConnection.edges;
+    return result.productsConnection;
 };
 
 export const getProduct = async (id: string | string[] | undefined) => {
@@ -102,7 +134,6 @@ export const getAllProductsByCategory = async (
     const query = gql`
         query MyQuery($category: String!) {
             productsConnection(
-                first: 8
                 where: { categories_some: { slug: $category } }
             ) {
                 edges {
