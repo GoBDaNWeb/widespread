@@ -12,15 +12,11 @@ import {
 import Category from '@components/screens/Category';
 
 const CategoryPage: NextPage<ICategoryPageProps> = ({ products }) => {
-    console.log(products);
-
     return <Category products={products} />;
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const products = await getAllProductsByCategory(params?.slug);
-    console.log(products);
-
     return { props: { products } };
 };
 

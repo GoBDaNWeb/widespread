@@ -12,8 +12,7 @@
     .product {
         background: #fff;
         width: 100%;
-        max-width: 325px;
-        height: 380px;
+        height: 520px;
         border-radius: $primaryRounded;
         box-shadow: $primaryShadow;
         overflow: hidden;
@@ -135,6 +134,13 @@
     }
 }
 
+@media (max-width: 1880px) {
+    .productWrapper {
+        .product {
+            height: 420px;
+        }
+    }
+}
 @media (max-width: 1450px) {
     .productWrapper {
         .product {

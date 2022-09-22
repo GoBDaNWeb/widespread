@@ -1,7 +1,3 @@
-type Categoryes = {
-    name: string;
-};
-
 type Images = {
     url: string;
 };
@@ -10,6 +6,9 @@ type Size = {
     size: string;
 };
 type Category = {
+    name: string;
+};
+type Collection = {
     name: string;
 };
 
@@ -33,7 +32,6 @@ export interface ICategory {
     banner: Banner;
 }
 export interface IProduct {
-    categoryes: Categoryes[];
     exclusive: boolean;
     id: string;
     images: Images[];
@@ -45,6 +43,7 @@ export interface IProduct {
     description: string;
     sizes: Size[];
     categories: Category[];
+    collection: Collection;
 }
 
 export interface IProductEdge {
@@ -72,6 +71,10 @@ export interface IProductPageProps {
 }
 
 export interface ICategoryPageProps {
+    products: IProductResponse;
+}
+
+export interface ICollectionPageProps {
     products: IProductResponse;
 }
 
