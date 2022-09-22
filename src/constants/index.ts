@@ -1,3 +1,12 @@
 export const tShirtCategoryId = 'cl76yu5u5dq6q0ctg7n366vnb';
 export const hoodiesCategoryId = 'cl76zh0fyedu80dui7hkwgjb4';
 export const pantsCategoryId = 'cl76zi4vddxhs0buwvbd3pn7n';
+export const tShirtsCategorySlug = 't-shirts';
+export const shirtsCategorySlug = 'shirts';
+export const hoodiesCategorySlug = 'hoodies';
+export const sweatshirtsCategorySlug = 'sweatshirts';
+export const pantsCategorySlug = 'pants';
+export const suitPantsCategorySlug = 'suit-pants';
+export const topCollectionSlug = 'tops';
+export const bottomCollectionSlug = 'bottoms';
+export const hoodiesCollectionSlug = 'hoodies-and-sweatshirts';

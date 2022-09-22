@@ -166,6 +166,51 @@ export const getAllProductsByCategory = async (
     return result.productsConnection.edges;
 };
 
+export const getAllProductsByCollection = async (
+    collection: string | string[] | undefined,
+) => {
+    const query = gql`
+        query MyQuery($collection: String!) {
+            productsConnection(where: { collection: { slug: $collection } }) {
+                edges {
+                    cursor
+                    node {
+                        id
+                        name
+                        price
+                        new
+                        sale
+                        popular
+                        exclusive
+                        categories {
+                            name
+                        }
+                        collection {
+                            name
+                        }
+                        images {
+                            url
+                        }
+                    }
+                }
+                pageInfo {
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                    endCursor
+                }
+            }
+        }
+    `;
+
+    const result = await request(
+        'https://api-eu-central-1.hygraph.com/v2/cl76t0jfz0iof01ro719ncwpf/master',
+        query,
+        { collection },
+    );
+    return result.productsConnection;
+};
+
 export const getFilteredProductsByCategory = async (
     category: string,
     id: string | string[] | undefined,
@@ -221,6 +266,23 @@ export const getAllCategories = async () => {
         query,
     );
     return result.categories;
+};
+
+export const getAllCollections = async () => {
+    const query = gql`
+        query MyQuery {
+            collections {
+                name
+                slug
+            }
+        }
+    `;
+
+    const result = await request(
+        'https://api-eu-central-1.hygraph.com/v2/cl76t0jfz0iof01ro719ncwpf/master',
+        query,
+    );
+    return result.collections;
 };
 
 export const getBannerCategory = async (id: string) => {
